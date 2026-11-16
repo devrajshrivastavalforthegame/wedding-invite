@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Great+Vibes&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  --ivory: #F8F3E9;
+  --paper: #FFFDF8;
+  --burgundy: #702D3B;
+  --burgundy-dark: #4F1E2B;
+  --burgundy-deep: #3A141E;
+  --gold: #B89A61;
+  --gold-light: #E1C991;
+  --gold-pale: #F4E8CB;
+  --charcoal: #302923;
+  --muted: #7A695B;
+  --border-gold: rgba(184, 154, 97, 0.4);
+
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --script: 'Great Vibes', cursive;
+
+  font-family: var(--sans);
+  color: var(--charcoal);
+  background-color: var(--ivory);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--ivory);
+  color: var(--charcoal);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

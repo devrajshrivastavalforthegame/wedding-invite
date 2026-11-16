@@ -1,0 +1,103 @@
+export interface WeddingEvent {
+  id: string
+  title: string
+  subtitle?: string
+  date: string
+  time: string
+  venue: string
+  mapUrl?: string
+  image?: string
+  icon: 'mehendi' | 'music' | 'haldi' | 'wedding' | 'bidaai'
+}
+
+export const wedding = {
+  bride: 'Isha',
+  groom: 'Yatharth',
+  weddingDate: '12 December 2026',
+  displayDate: '12 December 2026',
+  venue: 'Shangri-La Palace',
+  location: 'Patna, Bihar, India',
+
+  targetDate: {
+    iso: '2026-12-12T19:30:00+05:30',
+    display: '12 December 2026, 7:30 PM IST',
+    timezone: 'Asia/Kolkata',
+  },
+
+  introduction: {
+    invocation: 'श्री गणेशाय नमः',
+    heading: 'Together with their families',
+    message:
+      'With hearts full of love and gratitude, we invite you to celebrate our wedding and begin a new chapter of our lives together.',
+  },
+
+  welcome: {
+    title: 'A New Chapter Begins',
+    message:
+      'With the blessings of our families, we invite you to join us as we celebrate the beautiful union of Isha and Yatharth. Your presence will make these moments even more special.',
+  },
+
+  closing: {
+    heading: "We Can't Wait to Celebrate With You",
+    message:
+      'As we begin this beautiful journey together, we look forward to sharing our happiness, laughter and memories with you.',
+    dateDisplay: '12 · 12 · 2026',
+  },
+
+  events: [
+    {
+      id: 'lagun-mehendi',
+      title: 'LAGUN & MEHENDI BHAAT',
+      subtitle: 'Celebration of Colour & Henna',
+      date: '7 December 2026',
+      time: '6:00 PM onwards',
+      venue: 'Details to be announced.',
+      image: '',
+      icon: 'mehendi',
+    },
+    {
+      id: 'mandap-tilak-sangeet',
+      title: 'MANDAP, TILAK & SANGEET',
+      subtitle: 'Hi-Tea & Dinner',
+      date: '11 December 2026',
+      time: '5:00 PM onwards',
+      venue: 'Cafe Hideout',
+      mapUrl: 'https://maps.app.goo.gl/9cpziZX4G2KRvQtb7',
+      image: '/images/cafe-hideout.png',
+      icon: 'music',
+    },
+    {
+      id: 'haldi',
+      title: 'HALDI',
+      subtitle: 'A Splash of Yellow & Joy',
+      date: '12 December 2026',
+      time: '11:00 AM – 2:00 PM',
+      venue: 'Shangri-La Palace',
+      mapUrl: 'https://maps.app.goo.gl/cURNsah1cQwL1Kqp9',
+      image: '/images/shangri-la-palace.png',
+      icon: 'haldi',
+    },
+    {
+      id: 'wedding-ceremony',
+      title: 'WEDDING CEREMONY',
+      subtitle: 'Pheras & Auspicious Vows',
+      date: '12 December 2026',
+      time: '7:30 PM onwards',
+      venue: 'Shangri-La Palace',
+      mapUrl: 'https://maps.app.goo.gl/cURNsah1cQwL1Kqp9',
+      image: '/images/shangri-la-palace.png',
+      icon: 'wedding',
+    },
+    {
+      id: 'bidaai',
+      title: 'BIDAAI',
+      subtitle: 'Blessings for the New Journey',
+      date: '13 December 2026',
+      time: '8:00 AM',
+      venue: 'Shangri-La Palace',
+      mapUrl: 'https://maps.app.goo.gl/cURNsah1cQwL1Kqp9',
+      image: '/images/shangri-la-palace.png',
+      icon: 'bidaai',
+    },
+  ] as WeddingEvent[],
+}

@@ -1,0 +1,211 @@
+
+import { useState } from 'react'
+import { AnimatePresence, motion } from 'motion/react'
+import {
+  Heart,
+  Sparkles,
+  ArrowDown,
+  MapPin,
+  CalendarDays,
+} from 'lucide-react'
+
+const wedding = {
+  groom: 'Aarav',
+  bride: 'Ananya',
+  date: '18 December 2026',
+  venue: 'The Royal Palace',
+  location: 'Jaipur, Rajasthan',
+}
+
+function InvitationCard({ onOpen }: { onOpen: () => void }) {
+  return (
+    <motion.div
+      className="invitation-scene"
+      initial={{ opacity: 0, y: 35, scale: 0.96 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: 1, ease: 'easeOut' }}
+    >
+      <div className="envelope">
+        <div className="envelope-back" />
+
+        <div className="envelope-letter">
+          <div className="letter-border">
+            <span className="letter-small">THE WEDDING OF</span>
+
+            <h2>
+              {wedding.groom}
+              <span>&</span>
+              {wedding.bride}
+            </h2>
+
+            <div className="gold-divider">
+              <span>✦</span>
+            </div>
+
+            <p>REQUEST THE PLEASURE OF YOUR COMPANY</p>
+          </div>
+        </div>
+
+        <div className="envelope-front" />
+
+        <motion.div
+          className="envelope-flap"
+          initial={false}
+        />
+
+        <motion.button
+          className="wax-seal"
+          onClick={onOpen}
+          whileHover={{ scale: 1.1, rotate: -5 }}
+          whileTap={{ scale: 0.92 }}
+          aria-label="Open wedding invitation"
+        >
+          <span>A</span>
+          <Heart size={13} fill="currentColor" />
+        </motion.button>
+      </div>
+
+      <motion.div
+        className="open-instruction"
+        animate={{ y: [0, -5, 0] }}
+        transition={{ repeat: Infinity, duration: 2.2 }}
+      >
+        <Sparkles size={15} />
+        <span>Tap the seal to open your invitation</span>
+        <Sparkles size={15} />
+      </motion.div>
+    </motion.div>
+  )
+}
+
+function WeddingReveal() {
+  return (
+    <motion.main
+      className="wedding-reveal"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1.2 }}
+    >
+      <div className="reveal-background" />
+
+      <div className="reveal-content">
+        <motion.span
+          className="eyebrow"
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+        >
+          WITH THE BLESSINGS OF OUR FAMILIES
+        </motion.span>
+
+        <motion.div
+          className="ornament"
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ delay: 0.5, type: 'spring' }}
+        >
+          ✦
+        </motion.div>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 1 }}
+        >
+          {wedding.groom}
+          <span className="ampersand">&</span>
+          {wedding.bride}
+        </motion.h1>
+
+        <motion.p
+          className="reveal-description"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+        >
+          Together with our families, we invite you
+          to celebrate the beginning of our forever.
+        </motion.p>
+
+        <motion.div
+          className="wedding-details"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.2 }}
+        >
+          <div>
+            <CalendarDays size={19} />
+            <span>{wedding.date}</span>
+          </div>
+
+          <div>
+            <MapPin size={19} />
+            <span>{wedding.venue}, {wedding.location}</span>
+          </div>
+        </motion.div>
+
+        <motion.button
+          className="discover-button"
+          onClick={() =>
+            document.getElementById('celebration')?.scrollIntoView({
+              behavior: 'smooth',
+            })
+          }
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5 }}
+        >
+          DISCOVER OUR CELEBRATION
+          <ArrowDown size={16} />
+        </motion.button>
+      </div>
+
+      <section className="celebration-section" id="celebration">
+        <span className="eyebrow">SAVE THE DATE</span>
+        <h2>A Celebration of Love</h2>
+        <p>
+          Two hearts, one beautiful journey.
+          We cannot wait to celebrate this special
+          day with the people who mean the most to us.
+        </p>
+      </section>
+    </motion.main>
+  )
+}
+
+export default function App() {
+  const [opened, setOpened] = useState(false)
+
+  return (
+    <div className="app-shell">
+      <AnimatePresence mode="wait">
+        {!opened ? (
+          <motion.section
+            key="invitation"
+            className="landing-screen"
+            exit={{ opacity: 0, scale: 1.04, filter: 'blur(8px)' }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="corner-ornament top-left">❧</div>
+            <div className="corner-ornament top-right">❧</div>
+            <div className="corner-ornament bottom-left">❧</div>
+            <div className="corner-ornament bottom-right">❧</div>
+
+            <div className="landing-heading">
+              <span>AN INVITATION TO CELEBRATE</span>
+              <div className="heading-divider">✦</div>
+            </div>
+
+            <InvitationCard onOpen={() => setOpened(true)} />
+
+            <div className="landing-footer">
+              MADE WITH LOVE <Heart size={12} fill="currentColor" />
+            </div>
+          </motion.section>
+        ) : (
+          <WeddingReveal />
+        )}
+      </AnimatePresence>
+    </div>
+  )
+}
