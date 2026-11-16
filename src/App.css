@@ -1528,6 +1528,17 @@
   letter-spacing: 0.02em;
 }
 
+.family-parent-designation {
+  margin: 4px 0 0;
+  font-family: var(--serif);
+  font-size: 13.5px;
+  font-style: italic;
+  color: var(--burgundy);
+  letter-spacing: 0.02em;
+  opacity: 0.95;
+  line-height: 1.4;
+}
+
 .family-note {
   margin: 4px 0 0;
   font-family: var(--serif);

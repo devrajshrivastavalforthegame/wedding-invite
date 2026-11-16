@@ -16,6 +16,7 @@ export interface FamilySide {
   surname: string
   blessingsFrom: string
   parents: string
+  parentDesignation?: string
   familyNote: string
 }
 
@@ -63,16 +64,19 @@ export const wedding = {
       title: "Bride's Family",
       surname: 'Shrivastava Family',
       blessingsFrom: 'With the divine blessings of our beloved Grandparents',
-      parents: 'Daughter of Smt. & Shri Shrivastava',
+      parents:
+        'Daughter of Smt. Babita Shrivastava & Shri Rajendra Kumar Shrivastava',
+      parentDesignation:
+        '(Raja — Member of MPCC & National Secretary of Kayastha Mahasabha)',
       familyNote:
         'Warmly inviting you to celebrate the joyous occasion with the entire Shrivastava family and relatives.',
     },
     groom: {
       side: 'groom' as const,
       title: "Groom's Family",
-      surname: 'Groom’s Family',
+      surname: 'Vats Family',
       blessingsFrom: 'With the divine blessings of our beloved Grandparents',
-      parents: 'Son of Smt. & Shri ...',
+      parents: 'Son of Smt. & Shri Vats',
       familyNote:
         'Looking forward to welcoming you with warmth, affection, and folded hands.',
     },
@@ -88,8 +92,8 @@ export const wedding = {
         name: 'Devraj Shrivastava',
         relation: "Bride's Family",
         role: 'Hospitality & Guest Assistance',
-        phone: '+91 98765 43210',
-        phoneClean: '919876543210',
+        phone: '+91 78692 22615',
+        phoneClean: '917869222615',
       },
       {
         name: 'Family Wedding Desk',

@@ -340,6 +340,11 @@ function WeddingCelebrationPage() {
               <p className="family-parents">
                 {wedding.families.bride.parents}
               </p>
+              {wedding.families.bride.parentDesignation && (
+                <p className="family-parent-designation">
+                  {wedding.families.bride.parentDesignation}
+                </p>
+              )}
               <p className="family-note">
                 {wedding.families.bride.familyNote}
               </p>
