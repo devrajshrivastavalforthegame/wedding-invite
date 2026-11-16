@@ -32,7 +32,105 @@
 }
 
 /* --------------------------------------------------------------------------
-   2. ENVELOPE OPENING SCREEN
+   2. FALLING FLOWER & LEAF PETAL RAIN EFFECT
+   -------------------------------------------------------------------------- */
+.petal-rain-container {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 40;
+  overflow: hidden;
+}
+
+.petal-item {
+  position: absolute;
+  top: -60px;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.petal-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 2px 5px rgba(48, 41, 35, 0.15));
+}
+
+.sway-left {
+  animation: fallAndSwayLeft infinite linear;
+}
+
+.sway-right {
+  animation: fallAndSwayRight infinite linear;
+}
+
+.sway-spin {
+  animation: fallAndSpin infinite linear;
+}
+
+@keyframes fallAndSwayLeft {
+  0% {
+    transform: translateY(0) rotate(0deg) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.85;
+  }
+  50% {
+    transform: translateY(50vh) rotate(160deg) translateX(-45px);
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(105vh) rotate(320deg) translateX(15px);
+    opacity: 0;
+  }
+}
+
+@keyframes fallAndSwayRight {
+  0% {
+    transform: translateY(0) rotate(0deg) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.85;
+  }
+  50% {
+    transform: translateY(52vh) rotate(-140deg) translateX(50px);
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(105vh) rotate(-290deg) translateX(-20px);
+    opacity: 0;
+  }
+}
+
+@keyframes fallAndSpin {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(0.9);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(50vh) rotate(180deg) scale(1.05) translateX(30px);
+  }
+  85% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(105vh) rotate(360deg) scale(0.85) translateX(-35px);
+    opacity: 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. ENVELOPE OPENING SCREEN
    -------------------------------------------------------------------------- */
 .envelope-screen {
   position: relative;
@@ -314,7 +412,7 @@
 
 .envelope-monogram {
   position: absolute;
-  top: 48%;
+  top: 74%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
@@ -323,7 +421,7 @@
   gap: 8px;
   color: var(--gold-light);
   font-family: var(--serif);
-  font-size: clamp(30px, 6vw, 48px);
+  font-size: clamp(26px, 5.5vw, 42px);
   font-weight: 500;
   letter-spacing: 2px;
   text-shadow: 0 2px 6px rgba(48, 41, 35, 0.4);
@@ -337,7 +435,7 @@
 
 .envelope-address {
   position: absolute;
-  bottom: 12%;
+  bottom: 8%;
   left: 0;
   width: 100%;
   text-align: center;
@@ -378,10 +476,10 @@
   pointer-events: none;
 }
 
-/* Wax Seal Button */
+/* Wax Seal Button — Perfectly Aligned at the Triangle Flap Tip (57%) */
 .royal-wax-seal {
   position: absolute;
-  top: 50%;
+  top: 57%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
@@ -504,13 +602,13 @@
 }
 
 /* --------------------------------------------------------------------------
-   3. MUSIC CONTROLLER (Floating Pill)
+   4. MUSIC CONTROLLER (Floating Pill — Elevated Above Netlify Watermark)
    -------------------------------------------------------------------------- */
 .music-controller-root {
   position: fixed;
-  bottom: 22px;
-  right: 22px;
-  z-index: 90;
+  bottom: 84px; /* Elevated well above the Netlify watermark at bottom-right */
+  right: 20px;
+  z-index: 9999;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -537,10 +635,10 @@
   gap: 8px;
   padding: 6px 12px 6px 10px;
   border-radius: 30px;
-  background: rgba(255, 253, 248, 0.92);
+  background: rgba(255, 253, 248, 0.94);
   border: 1px solid var(--border-gold);
   box-shadow:
-    0 8px 24px rgba(48, 41, 35, 0.12),
+    0 8px 24px rgba(48, 41, 35, 0.14),
     0 2px 6px rgba(112, 45, 59, 0.08);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -609,7 +707,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   4. MAIN WEDDING CELEBRATION PAGE
+   5. MAIN WEDDING CELEBRATION PAGE
    -------------------------------------------------------------------------- */
 .wedding-page {
   position: relative;
@@ -940,7 +1038,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   5. WELCOME SECTION
+   6. WELCOME SECTION
    -------------------------------------------------------------------------- */
 .welcome-section {
   position: relative;
@@ -992,7 +1090,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   6. COUNTDOWN SECTION
+   7. COUNTDOWN SECTION
    -------------------------------------------------------------------------- */
 .countdown-section {
   position: relative;
@@ -1103,7 +1201,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   7. WEDDING EVENTS SECTION
+   8. WEDDING EVENTS SECTION
    -------------------------------------------------------------------------- */
 .celebration-section {
   position: relative;
@@ -1323,7 +1421,236 @@
 }
 
 /* --------------------------------------------------------------------------
-   8. CLOSING SECTION
+   9. FAMILY NAMES & BLESSINGS SECTION
+   -------------------------------------------------------------------------- */
+.family-section {
+  position: relative;
+  padding: 70px 20px 80px;
+  background-color: var(--ivory);
+  background-image: radial-gradient(circle at 50% 50%, rgba(225, 201, 145, 0.18), transparent 70%);
+  border-top: 1px solid var(--border-gold);
+}
+
+.family-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.family-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  border: 1px solid var(--border-gold);
+  border-radius: 12px;
+  padding: 28px 24px;
+  text-align: center;
+  box-shadow:
+    0 10px 30px rgba(48, 41, 35, 0.05),
+    inset 0 0 0 3px rgba(248, 243, 233, 0.6),
+    inset 0 0 0 4px var(--border-gold);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.family-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(112, 45, 59, 0.1);
+}
+
+.family-card-header {
+  margin-bottom: 16px;
+}
+
+.family-badge {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 20px;
+  background: rgba(112, 45, 59, 0.08);
+  border: 1px solid rgba(184, 154, 97, 0.4);
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--burgundy);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.family-surname {
+  margin: 4px 0 0;
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--burgundy);
+}
+
+.family-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.family-blessing {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 14px;
+  font-style: italic;
+  color: var(--gold);
+}
+
+.family-ornament-divider {
+  color: var(--gold);
+  font-size: 14px;
+  line-height: 1;
+  opacity: 0.7;
+}
+
+.family-parents {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--charcoal);
+  letter-spacing: 0.02em;
+}
+
+.family-note {
+  margin: 4px 0 0;
+  font-family: var(--serif);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* --------------------------------------------------------------------------
+   10. RSVP SECTION
+   -------------------------------------------------------------------------- */
+.rsvp-section {
+  position: relative;
+  padding: 70px 20px 80px;
+  background: var(--paper);
+  border-top: 1px solid var(--border-gold);
+}
+
+.rsvp-container {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.rsvp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+  margin: 32px 0 24px;
+}
+
+.rsvp-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: var(--ivory);
+  border: 1px solid var(--border-gold);
+  border-radius: 10px;
+  padding: 24px 20px;
+  box-shadow: 0 6px 20px rgba(48, 41, 35, 0.04);
+}
+
+.rsvp-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 1px solid var(--border-gold);
+  color: var(--burgundy);
+  margin-bottom: 12px;
+}
+
+.rsvp-name {
+  margin: 0 0 2px;
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--burgundy);
+}
+
+.rsvp-relation {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.rsvp-role {
+  font-family: var(--serif);
+  font-size: 13px;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.rsvp-actions {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.rsvp-action-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 9px 12px;
+  border-radius: 6px;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.rsvp-call-btn {
+  background: var(--paper);
+  border: 1px solid var(--border-gold);
+  color: var(--burgundy);
+}
+.rsvp-call-btn:hover {
+  background: var(--burgundy);
+  color: var(--gold-light);
+  border-color: var(--burgundy);
+}
+
+.rsvp-whatsapp-btn {
+  background: #25D366;
+  border: 1px solid #20BA5A;
+  color: #FFFFFF;
+}
+.rsvp-whatsapp-btn:hover {
+  background: #1EBE5D;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.rsvp-advice-note {
+  text-align: center;
+  font-family: var(--serif);
+  font-size: 14px;
+  font-style: italic;
+  color: var(--muted);
+  max-width: 500px;
+  margin: 12px auto 0;
+}
+
+/* --------------------------------------------------------------------------
+   11. CLOSING SECTION
    -------------------------------------------------------------------------- */
 .closing-section {
   position: relative;
@@ -1410,7 +1737,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   9. SITE FOOTER
+   12. SITE FOOTER
    -------------------------------------------------------------------------- */
 .site-footer {
   padding: 24px 20px;
@@ -1451,7 +1778,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   10. RESPONSIVE BREAKPOINTS (320px, 375px, 430px, 768px, 1024px)
+   13. RESPONSIVE BREAKPOINTS (320px, 375px, 430px, 768px, 1024px)
    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
   .top-bar {
@@ -1473,8 +1800,16 @@
     grid-template-columns: 1fr;
     gap: 22px;
   }
+  .family-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .rsvp-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
   .music-controller-root {
-    bottom: 16px;
+    bottom: 80px;
     right: 16px;
   }
 }
@@ -1490,6 +1825,10 @@
   .royal-envelope {
     width: 90vw;
     height: 250px;
+  }
+  .royal-wax-seal {
+    width: 72px;
+    top: 57%;
   }
   .emerging-invitation {
     height: 230px;
@@ -1517,7 +1856,8 @@
     height: 230px;
   }
   .royal-wax-seal {
-    width: 68px;
+    width: 66px;
+    top: 57%;
   }
   .seal-monogram {
     font-size: 20px;

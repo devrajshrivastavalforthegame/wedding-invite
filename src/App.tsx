@@ -9,14 +9,18 @@ import {
   Heart,
   Landmark,
   MapPin,
+  MessageCircle,
   Music2,
+  Phone,
   Sparkles,
   Sun,
+  Users,
 } from 'lucide-react'
 
 import Countdown from './components/Countdown'
 import EnvelopeReveal from './components/EnvelopeReveal'
 import MusicPlayer from './components/MusicPlayer'
+import PetalRain from './components/PetalRain'
 import { wedding, type WeddingEvent } from './data/wedding'
 
 import './App.css'
@@ -159,7 +163,6 @@ function WeddingCelebrationPage() {
 
       {/* Hero Section */}
       <section className="hero-section" id="home">
-        {/* Decorative corner embellishments */}
         <div className="hero-corner hero-corner-tl" aria-hidden="true">
           ❖
         </div>
@@ -301,6 +304,137 @@ function WeddingCelebrationPage() {
         </div>
       </section>
 
+      {/* Family Names & Blessings Section */}
+      <section className="family-section" id="families">
+        <div className="section-heading">
+          <span className="section-eyebrow">TWO HEARTS, TWO FAMILIES</span>
+          <h2>{wedding.families.sectionTitle}</h2>
+          <p className="section-subtext">{wedding.families.sectionSubtitle}</p>
+          <div className="section-ornament">
+            <span className="line" />
+            <span className="symbol">✦ ❧ ✦</span>
+            <span className="line" />
+          </div>
+        </div>
+
+        <div className="family-cards-grid">
+          {/* Bride's Family Card */}
+          <motion.div
+            className="family-card"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="family-card-header">
+              <span className="family-badge">BRIDE'S SIDE</span>
+              <h3 className="family-surname">
+                {wedding.families.bride.surname}
+              </h3>
+            </div>
+            <div className="family-card-body">
+              <p className="family-blessing">
+                {wedding.families.bride.blessingsFrom}
+              </p>
+              <div className="family-ornament-divider">❖</div>
+              <p className="family-parents">
+                {wedding.families.bride.parents}
+              </p>
+              <p className="family-note">
+                {wedding.families.bride.familyNote}
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Groom's Family Card */}
+          <motion.div
+            className="family-card"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+          >
+            <div className="family-card-header">
+              <span className="family-badge">GROOM'S SIDE</span>
+              <h3 className="family-surname">
+                {wedding.families.groom.surname}
+              </h3>
+            </div>
+            <div className="family-card-body">
+              <p className="family-blessing">
+                {wedding.families.groom.blessingsFrom}
+              </p>
+              <div className="family-ornament-divider">❖</div>
+              <p className="family-parents">
+                {wedding.families.groom.parents}
+              </p>
+              <p className="family-note">
+                {wedding.families.groom.familyNote}
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* RSVP Section */}
+      <section className="rsvp-section" id="rsvp">
+        <div className="rsvp-container">
+          <div className="section-heading">
+            <span className="section-eyebrow">WITH WARM COMPLIMENTS</span>
+            <h2>{wedding.rsvp.title}</h2>
+            <p className="section-subtext">{wedding.rsvp.note}</p>
+            <div className="section-ornament">
+              <span className="line" />
+              <span className="symbol">✦ ॐ ✦</span>
+              <span className="line" />
+            </div>
+          </div>
+
+          <div className="rsvp-grid">
+            {wedding.rsvp.contacts.map((contact, index) => (
+              <motion.div
+                key={contact.name}
+                className="rsvp-card"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.12 }}
+              >
+                <div className="rsvp-icon-wrap">
+                  <Users size={22} />
+                </div>
+                <h4 className="rsvp-name">{contact.name}</h4>
+                <span className="rsvp-relation">{contact.relation}</span>
+                <span className="rsvp-role">{contact.role}</span>
+
+                <div className="rsvp-actions">
+                  <a
+                    href={`tel:${contact.phoneClean}`}
+                    className="rsvp-action-btn rsvp-call-btn"
+                    aria-label={`Call ${contact.name}`}
+                  >
+                    <Phone size={14} />
+                    <span>Call</span>
+                  </a>
+                  <a
+                    href={`https://wa.me/${contact.phoneClean}?text=Hello%20${encodeURIComponent(contact.name)},%20we%20are%20delighted%20to%20attend%20Isha%20%26%20Yatharth%27s%20wedding%20celebration!`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rsvp-action-btn rsvp-whatsapp-btn"
+                    aria-label={`WhatsApp ${contact.name}`}
+                  >
+                    <MessageCircle size={14} />
+                    <span>WhatsApp</span>
+                  </a>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <p className="rsvp-advice-note">{wedding.rsvp.advice}</p>
+        </div>
+      </section>
+
       {/* Closing Section */}
       <section className="closing-section">
         <div className="closing-inner">
@@ -353,7 +487,6 @@ export default function App() {
     const audio = audioRef.current
     if (!audio) return
 
-    // Set gentle starting volume (fade in)
     audio.volume = 0
     audio.muted = isMuted
 
@@ -362,7 +495,6 @@ export default function App() {
       playPromise
         .then(() => {
           setIsPlaying(true)
-          // Gentle fade in to 30% volume
           let currentVol = 0
           const targetVol = 0.3
           const fadeInterval = window.setInterval(() => {
@@ -377,7 +509,6 @@ export default function App() {
         })
         .catch((err) => {
           console.warn('Audio play request notice:', err)
-          // Autoplay block or file missing handled gracefully
         })
     }
   }, [isMuted])
@@ -407,7 +538,6 @@ export default function App() {
     setIsMuted(newMuted)
   }
 
-  // Handle audio error (e.g. if wedding-theme.mp3 is not yet placed)
   const handleAudioError = () => {
     setHasAudioError(true)
     setIsPlaying(false)
@@ -415,6 +545,9 @@ export default function App() {
 
   return (
     <div className="app-root">
+      {/* Floating festive marigold and rose petals & leaves shower */}
+      <PetalRain />
+
       {/* Single persistent audio element across whole application */}
       <audio
         ref={audioRef}

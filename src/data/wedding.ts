@@ -10,6 +10,23 @@ export interface WeddingEvent {
   icon: 'mehendi' | 'music' | 'haldi' | 'wedding' | 'bidaai'
 }
 
+export interface FamilySide {
+  side: 'bride' | 'groom'
+  title: string
+  surname: string
+  blessingsFrom: string
+  parents: string
+  familyNote: string
+}
+
+export interface RSVPContact {
+  name: string
+  relation: string
+  phone: string
+  phoneClean: string
+  role: string
+}
+
 export const wedding = {
   bride: 'Isha',
   groom: 'Yatharth',
@@ -35,6 +52,55 @@ export const wedding = {
     title: 'A New Chapter Begins',
     message:
       'With the blessings of our families, we invite you to join us as we celebrate the beautiful union of Isha and Yatharth. Your presence will make these moments even more special.',
+  },
+
+  // Family Lineage & Blessings
+  families: {
+    sectionTitle: 'With Blessings from Families',
+    sectionSubtitle: 'A union nurtured by love, traditions, and family elders',
+    bride: {
+      side: 'bride' as const,
+      title: "Bride's Family",
+      surname: 'Shrivastava Family',
+      blessingsFrom: 'With the divine blessings of our beloved Grandparents',
+      parents: 'Daughter of Smt. & Shri Shrivastava',
+      familyNote:
+        'Warmly inviting you to celebrate the joyous occasion with the entire Shrivastava family and relatives.',
+    },
+    groom: {
+      side: 'groom' as const,
+      title: "Groom's Family",
+      surname: 'Groom’s Family',
+      blessingsFrom: 'With the divine blessings of our beloved Grandparents',
+      parents: 'Son of Smt. & Shri ...',
+      familyNote:
+        'Looking forward to welcoming you with warmth, affection, and folded hands.',
+    },
+  },
+
+  // RSVP & Hospitality
+  rsvp: {
+    title: 'R. S. V. P.',
+    subtitle: 'With Warm Compliments',
+    note: 'Your presence and blessings are our greatest gift. For any assistance with travel, accommodation, or itinerary in Patna, please contact our family members:',
+    contacts: [
+      {
+        name: 'Devraj Shrivastava',
+        relation: "Bride's Family",
+        role: 'Hospitality & Guest Assistance',
+        phone: '+91 98765 43210',
+        phoneClean: '919876543210',
+      },
+      {
+        name: 'Family Wedding Desk',
+        relation: 'Patna Coordination',
+        role: 'Venue & Stay Logistics',
+        phone: '+91 91234 56789',
+        phoneClean: '919123456789',
+      },
+    ] as RSVPContact[],
+    advice:
+      'Kindly let us know your arrival details by 25 November 2026 to ensure a comfortable stay.',
   },
 
   closing: {
