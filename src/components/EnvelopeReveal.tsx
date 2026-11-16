@@ -43,7 +43,6 @@ export default function EnvelopeReveal({
       className="envelope-screen"
       aria-label="Royal Wedding Envelope Invitation"
     >
-      {/* Background radial ambient glow and traditional Indian corner motifs */}
       <div className="envelope-screen-vignette" />
 
       <div className="envelope-outer-frame">
@@ -152,50 +151,52 @@ export default function EnvelopeReveal({
                 <div className="flap-border" />
               </motion.div>
 
-              {/* Central Antique-Gold Wax Seal */}
-              <AnimatePresence>
-                {!isOpening && (
-                  <motion.button
-                    type="button"
-                    className="royal-wax-seal"
-                    aria-label="Break the wax seal to open your invitation"
-                    onClick={handleSealClick}
-                    initial={{ opacity: 0, scale: 0.6 }}
-                    animate={{
-                      opacity: 1,
-                      scale: 1,
-                      boxShadow: [
-                        '0 6px 18px rgba(79, 30, 43, 0.45)',
-                        '0 8px 24px rgba(184, 154, 97, 0.55)',
-                        '0 6px 18px rgba(79, 30, 43, 0.45)',
-                      ],
-                    }}
-                    exit={{
-                      opacity: 0,
-                      scale: 1.4,
-                      filter: 'blur(4px)',
-                      transition: { duration: 0.35, ease: 'easeOut' },
-                    }}
-                    transition={{
-                      delay: 0.4,
-                      duration: 0.6,
-                      boxShadow: {
-                        duration: 2.5,
-                        repeat: Infinity,
-                        ease: 'easeInOut',
-                      },
-                    }}
-                    whileHover={{ scale: 1.08 }}
-                    whileTap={{ scale: 0.92 }}
-                  >
-                    <div className="seal-outer-rim" />
-                    <div className="seal-inner-circle">
-                      <span className="seal-monogram">IY</span>
-                      <span className="seal-star">✦</span>
-                    </div>
-                  </motion.button>
-                )}
-              </AnimatePresence>
+              {/* Anchor positioned precisely at the apex tip (top: 57%, left: 50%) */}
+              <div className="royal-wax-seal-anchor">
+                <AnimatePresence>
+                  {!isOpening && (
+                    <motion.button
+                      type="button"
+                      className="royal-wax-seal"
+                      aria-label="Break the wax seal to open your invitation"
+                      onClick={handleSealClick}
+                      initial={{ opacity: 0, scale: 0.6 }}
+                      animate={{
+                        opacity: 1,
+                        scale: 1,
+                        boxShadow: [
+                          '0 6px 18px rgba(79, 30, 43, 0.45)',
+                          '0 8px 24px rgba(184, 154, 97, 0.55)',
+                          '0 6px 18px rgba(79, 30, 43, 0.45)',
+                        ],
+                      }}
+                      exit={{
+                        opacity: 0,
+                        scale: 1.4,
+                        filter: 'blur(4px)',
+                        transition: { duration: 0.35, ease: 'easeOut' },
+                      }}
+                      transition={{
+                        delay: 0.4,
+                        duration: 0.6,
+                        boxShadow: {
+                          duration: 2.5,
+                          repeat: Infinity,
+                          ease: 'easeInOut',
+                        },
+                      }}
+                      whileHover={{ scale: 1.08 }}
+                      whileTap={{ scale: 0.92 }}
+                    >
+                      <div className="seal-outer-rim" />
+                      <div className="seal-inner-circle">
+                        <span className="seal-monogram">IY</span>
+                        <span className="seal-star">✦</span>
+                      </div>
+                    </motion.button>
+                  )}
+                </AnimatePresence>
+              </div>
 
               {/* Envelope Ornamental Corners */}
               <span className="envelope-corner corner-tl">❧</span>
@@ -217,7 +218,6 @@ export default function EnvelopeReveal({
             ISHA & YATHARTH <span>·</span> 12 DECEMBER 2026
           </div>
 
-          {/* Quick skip button for instant access/accessibility */}
           <button
             type="button"
             className="skip-intro-btn"

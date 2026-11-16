@@ -476,18 +476,29 @@
   pointer-events: none;
 }
 
-/* Wax Seal Button — Perfectly Aligned at the Triangle Flap Tip (57%) */
-.royal-wax-seal {
+/* Anchor element holding the wax seal precisely at the triangular flap tip (top: 57%, left: 50%) */
+.royal-wax-seal-anchor {
   position: absolute;
   top: 57%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: clamp(74px, 16vw, 92px);
+  aspect-ratio: 1;
   z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: clamp(74px, 16vw, 92px);
-  aspect-ratio: 1;
+  pointer-events: none;
+}
+
+/* Wax Seal Button */
+.royal-wax-seal {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0;
   border: none;
   border-radius: 50%;
@@ -495,6 +506,7 @@
   cursor: pointer;
   outline: none;
   user-select: none;
+  pointer-events: auto;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -1826,9 +1838,8 @@
     width: 90vw;
     height: 250px;
   }
-  .royal-wax-seal {
+  .royal-wax-seal-anchor {
     width: 72px;
-    top: 57%;
   }
   .emerging-invitation {
     height: 230px;
@@ -1855,9 +1866,8 @@
   .royal-envelope {
     height: 230px;
   }
-  .royal-wax-seal {
+  .royal-wax-seal-anchor {
     width: 66px;
-    top: 57%;
   }
   .seal-monogram {
     font-size: 20px;
