@@ -65,9 +65,9 @@ export const wedding = {
       surname: 'Shrivastava Family',
       blessingsFrom: 'With the divine blessings of our beloved Grandparents',
       parents:
-        'Daughter of Smt. Babita Shrivastava & Shri Rajendra Kumar Shrivastava',
+        'Daughter of Smt. Babita & Shri Rajendra Kumar Shrivastava',
       parentDesignation:
-        '(Raja — Member of MPCC & National Secretary of Kayastha Mahasabha)',
+        '(Raja) Member of MPCCI & National Secretary of Akhil Bharitye Kayastha Mahasabha',
       familyNote:
         'Warmly inviting you to celebrate the joyous occasion with the entire Shrivastava family and relatives.',
     },
@@ -76,7 +76,7 @@ export const wedding = {
       title: "Groom's Family",
       surname: 'Vats Family',
       blessingsFrom: 'With the divine blessings of our beloved Grandparents',
-      parents: 'Son of Smt. & Shri Vats',
+      parents: 'Son of Smt. Deepti & Shri Shyam Vats',
       familyNote:
         'Looking forward to welcoming you with warmth, affection, and folded hands.',
     },
@@ -99,8 +99,8 @@ export const wedding = {
         name: 'Family Wedding Desk',
         relation: 'Patna Coordination',
         role: 'Venue & Stay Logistics',
-        phone: '+91 91234 56789',
-        phoneClean: '919123456789',
+        phone: '+91 94251 22615',
+        phoneClean: '919425122615',
       },
     ] as RSVPContact[],
     advice:

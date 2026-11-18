@@ -191,35 +191,60 @@ function WeddingCelebrationPage() {
             {wedding.introduction.heading}
           </p>
 
-          {/* Framed Couple Portrait */}
+          {/* Royal Palace Jharokha Framed Couple Portrait */}
           <div className="couple-photo-wrapper">
-            <div className="couple-photo-frame">
-              <div className="photo-outer-border">
-                <div className="photo-inner-border">
-                  {!photoError ? (
-                    <img
-                      src="/images/couple-placeholder.png"
-                      alt="Isha & Yatharth - Wedding Couple"
-                      className="couple-photo"
-                      onError={() => setPhotoError(true)}
-                    />
-                  ) : (
-                    <div className="couple-photo-fallback">
-                      <div className="fallback-monogram">IY</div>
-                      <span className="fallback-text">Isha & Yatharth</span>
-                      <span className="fallback-date">12.12.2026</span>
+            <div className="royal-jharokha-frame">
+              {/* Top Arch Finial / Crown */}
+              <div className="jharokha-crown" aria-hidden="true">
+                <span className="crown-star">✦</span>
+                <span className="crown-crest">❧ ॐ ❧</span>
+                <span className="crown-star">✦</span>
+              </div>
+
+              {/* Corner Spandrel Filigrees */}
+              <div className="jharokha-spandrel spandrel-left" aria-hidden="true">
+                <svg viewBox="0 0 40 40" className="filigree-svg">
+                  <path d="M0,0 C15,0 35,5 40,20 C30,12 18,18 12,30 C8,20 0,15 0,0 Z" fill="currentColor" />
+                  <circle cx="10" cy="10" r="2" fill="#FFFDF8" />
+                </svg>
+              </div>
+              <div className="jharokha-spandrel spandrel-right" aria-hidden="true">
+                <svg viewBox="0 0 40 40" className="filigree-svg">
+                  <path d="M40,0 C25,0 5,5 0,20 C10,12 22,18 28,30 C32,20 40,15 40,0 Z" fill="currentColor" />
+                  <circle cx="30" cy="10" r="2" fill="#FFFDF8" />
+                </svg>
+              </div>
+
+              {/* Multi-layered Gilded Frame */}
+              <div className="jharokha-outer-rim">
+                <div className="jharokha-velvet-inlay">
+                  <div className="jharokha-inner-mat">
+                    <div className="photo-inner-viewport">
+                      {!photoError ? (
+                        <img
+                          src="/images/couple-placeholder.png"
+                          alt="Isha & Yatharth - Wedding Couple"
+                          className="couple-photo"
+                          onError={() => setPhotoError(true)}
+                        />
+                      ) : (
+                        <div className="couple-photo-fallback">
+                          <div className="fallback-monogram">IY</div>
+                          <span className="fallback-text">Isha & Yatharth</span>
+                          <span className="fallback-date">12.12.2026</span>
+                        </div>
+                      )}
                     </div>
-                  )}
+                  </div>
                 </div>
               </div>
 
-              {/* Gold floral badges on photo frame */}
-              <span className="photo-flower photo-flower-one" aria-hidden="true">
-                ✿
-              </span>
-              <span className="photo-flower photo-flower-two" aria-hidden="true">
-                ✿
-              </span>
+              {/* Bottom Pediment Lotus Ornament */}
+              <div className="jharokha-base-ornament" aria-hidden="true">
+                <span className="base-line" />
+                <span className="base-motif">❧ ✦ ❧</span>
+                <span className="base-line" />
+              </div>
             </div>
           </div>
 
