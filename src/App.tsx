@@ -191,59 +191,83 @@ function WeddingCelebrationPage() {
             {wedding.introduction.heading}
           </p>
 
-          {/* Royal Palace Jharokha Framed Couple Portrait */}
+          {/* Concept 3: Vintage Oil Painting Heirloom Canvas */}
           <div className="couple-photo-wrapper">
-            <div className="royal-jharokha-frame">
-              {/* Top Arch Finial / Crown */}
-              <div className="jharokha-crown" aria-hidden="true">
-                <span className="crown-star">✦</span>
-                <span className="crown-crest">❧ ॐ ❧</span>
-                <span className="crown-star">✦</span>
-              </div>
-
-              {/* Corner Spandrel Filigrees */}
-              <div className="jharokha-spandrel spandrel-left" aria-hidden="true">
-                <svg viewBox="0 0 40 40" className="filigree-svg">
-                  <path d="M0,0 C15,0 35,5 40,20 C30,12 18,18 12,30 C8,20 0,15 0,0 Z" fill="currentColor" />
-                  <circle cx="10" cy="10" r="2" fill="#FFFDF8" />
+            <div className="heirloom-canvas-frame">
+              {/* Corner Filigrees / Ornate Baroque Corners */}
+              <div className="heirloom-corner corner-tl" aria-hidden="true">
+                <svg viewBox="0 0 32 32" className="corner-filigree-svg">
+                  <path d="M0,0 L20,0 C12,4 6,10 6,18 C6,24 2,28 0,32 Z" fill="currentColor" />
+                  <circle cx="8" cy="8" r="2.5" fill="#FFFDF8" />
                 </svg>
               </div>
-              <div className="jharokha-spandrel spandrel-right" aria-hidden="true">
-                <svg viewBox="0 0 40 40" className="filigree-svg">
-                  <path d="M40,0 C25,0 5,5 0,20 C10,12 22,18 28,30 C32,20 40,15 40,0 Z" fill="currentColor" />
-                  <circle cx="30" cy="10" r="2" fill="#FFFDF8" />
+              <div className="heirloom-corner corner-tr" aria-hidden="true">
+                <svg viewBox="0 0 32 32" className="corner-filigree-svg">
+                  <path d="M32,0 L12,0 C20,4 26,10 26,18 C26,24 30,28 32,32 Z" fill="currentColor" />
+                  <circle cx="24" cy="8" r="2.5" fill="#FFFDF8" />
+                </svg>
+              </div>
+              <div className="heirloom-corner corner-bl" aria-hidden="true">
+                <svg viewBox="0 0 32 32" className="corner-filigree-svg">
+                  <path d="M0,32 L20,32 C12,28 6,22 6,14 C6,8 2,4 0,0 Z" fill="currentColor" />
+                  <circle cx="8" cy="24" r="2.5" fill="#FFFDF8" />
+                </svg>
+              </div>
+              <div className="heirloom-corner corner-br" aria-hidden="true">
+                <svg viewBox="0 0 32 32" className="corner-filigree-svg">
+                  <path d="M32,32 L12,32 C20,28 26,22 26,14 C26,8 30,4 32,0 Z" fill="currentColor" />
+                  <circle cx="24" cy="24" r="2.5" fill="#FFFDF8" />
                 </svg>
               </div>
 
-              {/* Multi-layered Gilded Frame */}
-              <div className="jharokha-outer-rim">
-                <div className="jharokha-velvet-inlay">
-                  <div className="jharokha-inner-mat">
-                    <div className="photo-inner-viewport">
-                      {!photoError ? (
-                        <img
-                          src="/images/couple-placeholder.png"
-                          alt="Isha & Yatharth - Wedding Couple"
-                          className="couple-photo"
-                          onError={() => setPhotoError(true)}
-                        />
-                      ) : (
-                        <div className="couple-photo-fallback">
-                          <div className="fallback-monogram">IY</div>
-                          <span className="fallback-text">Isha & Yatharth</span>
-                          <span className="fallback-date">12.12.2026</span>
-                        </div>
-                      )}
+              {/* Diagonal Crimson Silk Ribbon pinned with Miniature IY Wax Seal */}
+              <div className="heirloom-ribbon-wrap" aria-hidden="true">
+                <div className="heirloom-ribbon">
+                  <span className="ribbon-stitch stitch-top" />
+                  <span className="ribbon-text">ROYAL UNION</span>
+                  <span className="ribbon-stitch stitch-bottom" />
+                </div>
+                <div className="mini-wax-seal" title="Sealed with Love">
+                  <div className="mini-seal-outer" />
+                  <div className="mini-seal-core">
+                    <span className="mini-seal-text">IY</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Multi-tier Carved Gold Leaf Moulding */}
+              <div className="heirloom-outer-moulding">
+                <div className="heirloom-burgundy-recess">
+                  <div className="heirloom-beaded-liner">
+                    <div className="heirloom-matting">
+                      <div className="heirloom-photo-viewport">
+                        {!photoError ? (
+                          <img
+                            src="/images/couple-placeholder.png"
+                            alt="Isha & Yatharth - Wedding Couple"
+                            className="couple-photo"
+                            onError={() => setPhotoError(true)}
+                          />
+                        ) : (
+                          <div className="couple-photo-fallback">
+                            <div className="fallback-monogram">IY</div>
+                            <span className="fallback-text">Isha & Yatharth</span>
+                            <span className="fallback-date">12.12.2026</span>
+                          </div>
+                        )}
+                        {/* Oil Painting Subtle Canvas Glaze Overlay */}
+                        <div className="canvas-texture-glaze" />
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Bottom Pediment Lotus Ornament */}
-              <div className="jharokha-base-ornament" aria-hidden="true">
-                <span className="base-line" />
-                <span className="base-motif">❧ ✦ ❧</span>
-                <span className="base-line" />
+              {/* Antique Gilded Museum Plaque */}
+              <div className="heirloom-brass-plaque" aria-hidden="true">
+                <span className="plaque-rivet">❖</span>
+                <span className="plaque-title">ISHA &amp; YATHARTH · 12 DECEMBER 2026</span>
+                <span className="plaque-rivet">❖</span>
               </div>
             </div>
           </div>

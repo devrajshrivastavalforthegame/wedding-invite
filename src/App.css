@@ -846,157 +846,215 @@
   margin: 6px 0 24px;
 }
 
-/* Royal Palace Jharokha (Heirloom Scalloped Archway Frame) */
-.royal-jharokha-frame {
+/* ==========================================================================
+   CONCEPT 3: VINTAGE OIL PAINTING HEIRLOOM CANVAS & BAROQUE GOLD FRAME
+   ========================================================================== */
+.heirloom-canvas-frame {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: clamp(240px, 46vw, 320px);
-  padding-top: 18px;
+  width: clamp(260px, 48vw, 330px);
+  padding: 6px;
+  margin: 0 auto;
 }
 
-/* Ambient royal gold glow behind the frame */
-.royal-jharokha-frame::before {
+/* Ambient candlelit warm gold gallery illumination */
+.heirloom-canvas-frame::before {
   content: '';
   position: absolute;
-  top: 45%;
+  top: 48%;
   left: 50%;
-  width: 105%;
-  height: 95%;
+  width: 110%;
+  height: 100%;
   transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(225, 201, 145, 0.28) 0%, transparent 72%);
-  filter: blur(18px);
+  background: radial-gradient(circle, rgba(225, 201, 145, 0.32) 0%, rgba(112, 45, 59, 0.08) 60%, transparent 75%);
+  filter: blur(20px);
   pointer-events: none;
 }
 
-/* Crown / Apex Finial */
-.jharokha-crown {
+/* Ornate Gilded Baroque Corner Filigrees */
+.heirloom-corner {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  z-index: 15;
+  color: #E1C991;
+  filter: drop-shadow(0 2px 4px rgba(48, 41, 35, 0.35));
+  pointer-events: none;
+}
+.heirloom-corner.corner-tl { top: -2px; left: -2px; }
+.heirloom-corner.corner-tr { top: -2px; right: -2px; }
+.heirloom-corner.corner-bl { bottom: 18px; left: -2px; }
+.heirloom-corner.corner-br { bottom: 18px; right: -2px; }
+.corner-filigree-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Diagonal Crimson Silk Ribbon pinned with Miniature Wax Seal */
+.heirloom-ribbon-wrap {
+  position: absolute;
+  top: 12px;
+  right: -8px;
+  z-index: 25;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 8px rgba(48, 41, 35, 0.35));
+}
+
+.heirloom-ribbon {
+  position: relative;
+  padding: 4px 14px 4px 12px;
+  background: linear-gradient(135deg, #8E3547, #5C1D2B 75%);
+  color: #FFFDF8;
+  font-family: var(--sans);
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border-top: 1px dashed rgba(225, 201, 145, 0.7);
+  border-bottom: 1px dashed rgba(225, 201, 145, 0.7);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  transform: rotate(12deg);
+}
+
+.mini-wax-seal {
+  position: absolute;
+  right: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #913849, #541724 75%);
+  border: 1.5px dashed rgba(225, 201, 145, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  margin-bottom: -10px;
-  z-index: 5;
-  color: var(--gold);
-}
-
-.crown-crest {
-  font-family: var(--serif);
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  color: var(--burgundy);
-  background: var(--paper);
-  padding: 3px 12px;
-  border-radius: 20px;
-  border: 1px solid var(--border-gold);
-  box-shadow: 0 2px 8px rgba(48, 41, 35, 0.08);
-}
-
-.crown-star {
-  font-size: 10px;
-  color: var(--gold);
-}
-
-/* Corner Filigrees */
-.jharokha-spandrel {
-  position: absolute;
-  top: 14px;
-  width: 36px;
-  height: 36px;
-  z-index: 6;
-  color: var(--gold);
-  filter: drop-shadow(0 2px 4px rgba(48, 41, 35, 0.25));
-  pointer-events: none;
-}
-.spandrel-left {
-  left: -8px;
-}
-.spandrel-right {
-  right: -8px;
-}
-.filigree-svg {
-  width: 100%;
-  height: 100%;
-}
-
-/* Outer Gilded Arch */
-.jharokha-outer-rim {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 5.1;
-  border-radius: 155px 155px 14px 14px;
-  padding: 8px;
-  background: linear-gradient(145deg, #F5DFAC 0%, #D4B26F 35%, #9E7938 70%, #D4B26F 100%);
   box-shadow:
-    0 20px 45px rgba(48, 41, 35, 0.22),
-    0 8px 18px rgba(112, 45, 59, 0.12),
-    inset 0 1px 2px rgba(255, 255, 255, 0.7);
+    0 3px 8px rgba(30, 10, 15, 0.5),
+    inset 0 1px 2px rgba(255, 255, 255, 0.3);
 }
 
-/* Velvet Inlay Band */
-.jharokha-velvet-inlay {
+.mini-seal-core {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 82%;
+  height: 82%;
+  border-radius: 50%;
+  border: 1px solid rgba(225, 201, 145, 0.7);
+  background: radial-gradient(circle at 35% 25%, #7C2A3B, #48131E);
+}
+
+.mini-seal-text {
+  font-family: var(--serif);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold-light);
+  letter-spacing: 1px;
+}
+
+/* Multi-tier Carved Gold Leaf Moulding */
+.heirloom-outer-moulding {
   position: relative;
   width: 100%;
-  height: 100%;
-  padding: 4px;
-  border-radius: 147px 147px 10px 10px;
-  background: linear-gradient(145deg, #6B2937, #451722);
-  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #F9E8C1 0%, #D8B774 25%, #9E7A38 50%, #C9A45E 75%, #F9E8C1 100%);
+  box-shadow:
+    0 24px 50px rgba(48, 41, 35, 0.26),
+    0 8px 20px rgba(112, 45, 59, 0.15),
+    inset 0 1px 2px rgba(255, 255, 255, 0.8),
+    inset 0 -2px 5px rgba(0, 0, 0, 0.4);
 }
 
-/* Inner Matting (Ivory Paper) */
-.jharokha-inner-mat {
+/* Deep Velvet Shadow Channel */
+.heirloom-burgundy-recess {
   position: relative;
   width: 100%;
   height: 100%;
   padding: 5px;
-  border-radius: 143px 143px 8px 8px;
-  background: var(--paper);
-  box-shadow: inset 0 0 0 1px rgba(184, 154, 97, 0.5);
+  border-radius: 7px;
+  background: linear-gradient(145deg, #4F1925, #2B0B13);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6);
 }
 
-/* Viewport for Portrait */
-.photo-inner-viewport {
+/* Golden Beaded Fillet Liner */
+.heirloom-beaded-liner {
   position: relative;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  border-radius: 138px 138px 6px 6px;
-  border: 1px solid rgba(184, 154, 97, 0.4);
+  padding: 3px;
+  border-radius: 5px;
+  border: 2px dashed rgba(225, 201, 145, 0.8);
+  background: #B89A61;
 }
 
-.couple-photo {
+/* Museum Paper Matting */
+.heirloom-matting {
+  position: relative;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center 25%;
-  display: block;
+  padding: 7px;
+  border-radius: 4px;
+  background: var(--paper);
+  box-shadow: inset 0 0 0 1px rgba(184, 154, 97, 0.45);
 }
 
-/* Bottom Pediment Lotus Motif */
-.jharokha-base-ornament {
+/* Viewport for Oil Painting Portrait */
+.heirloom-photo-viewport {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 3px;
+  border: 1px solid rgba(184, 154, 97, 0.4);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.canvas-texture-glaze {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 40%, transparent 65%, rgba(48, 41, 35, 0.28) 100%);
+  mix-blend-mode: multiply;
+}
+
+/* Antique Gilded Museum Plaque */
+.heirloom-brass-plaque {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  width: 75%;
-  margin-top: 8px;
-  z-index: 4;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 4px 14px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #F3DFB0 0%, #CBB075 40%, #9C7D3E 100%);
+  border: 1px solid rgba(112, 45, 59, 0.35);
+  box-shadow:
+    0 3px 10px rgba(48, 41, 35, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.7);
+  z-index: 10;
 }
 
-.jharokha-base-ornament .base-line {
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+.plaque-rivet {
+  color: #5E202C;
+  font-size: 8px;
+  line-height: 1;
+  opacity: 0.85;
 }
 
-.jharokha-base-ornament .base-motif {
+.plaque-title {
   font-family: var(--serif);
-  font-size: 13px;
-  color: var(--gold);
-  letter-spacing: 0.15em;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: #4A1622;
+  text-transform: uppercase;
 }
 
 .couple-photo-fallback {
@@ -1973,8 +2031,8 @@
   .card-couple-names {
     font-size: 30px;
   }
-  .royal-jharokha-frame {
-    width: 230px;
+  .heirloom-canvas-frame {
+    width: clamp(240px, 80vw, 290px);
   }
   .countdown-card {
     padding: 14px 8px;
